@@ -55,6 +55,7 @@
      echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
     }*/
     sqlsrv_free_stmt($getResults);
+    echo $getResults;
 	/*try{
 		$connect = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
 		$connect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
