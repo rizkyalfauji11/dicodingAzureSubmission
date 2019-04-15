@@ -30,15 +30,35 @@
 </html>
 <?php  
 
-	$host = "dicodingwebapps.database.windows.net";
+	$serverName = "dicodingwebapps.database.windows.net";
 	$user = "dicoding";
 	$pass = "Dadangkole0";
 	$db = "dicodingwebapp";
 
-	try{
+	$connectionOptions = array(
+		"Database" => $db,
+		"Uid" => $user,
+		"PWD" => $pass
+	);
+
+	$conn = sqlsrv_connect($serverName, $connectionOptions);
+	$sql  = "select * from dicoding";
+
+	$getResult = sqlsrv_query($conn, $sql);
+	echo ("Reading data from table".PHP_EOL);
+
+	if($getResult == FALSE){
+		echo (sqlrv_errors());
+	}
+
+	/*while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+    }*/
+    sqlsrv_free_stmt($getResults);
+	/*try{
 		$connect = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
 		$connect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}catch(Exception $e){
 		echo "Failed: ".$e;
-	}
+	}*/
 ?>
