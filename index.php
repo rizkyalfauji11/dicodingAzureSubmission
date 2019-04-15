@@ -63,7 +63,7 @@
 
 		if(count($users > 0)){
 			echo "<table border='1'>>";
-			echo "<tr><th>Name<th><th>Email</th><th>Job</th></tr>";
+			echo "<tr><th>Name</th><th>Email</th><th>Job</th></tr>";
 
 			foreach($users as $user){
 				echo "<tr><td>".$user['name']."</td>";
