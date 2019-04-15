@@ -46,8 +46,8 @@
 			$name = $_POST['name'];
 			$email  = $_POST['email'];
 			$job = $_POST['job'];
-
-			$connect->exec("INSERT INTO [dbo].[tb_user](name, email, job) values('$name', '$email','$job')");
+			$date = date("Y-m-d");
+			$connect->exec("INSERT INTO [dbo].[tb_user](name, email, job, date) values('$name', '$email','$job', '$date')");
 
 			try{
 		$sql = "select * from [dbo].[tb_user]";
@@ -56,7 +56,7 @@
 
 		if(count($users > 0)){
 			echo "<table border='1'>";
-			echo "<tr><th>Name</th><th>Email</th><th>Job</th></tr>";
+			echo "<tr><th>Name</th><th>Email</th><th>Job</th><th>Date</th></tr>";
 
 			foreach($users as $user){
 				echo "<tr><td>".$user['name']."</td>";
@@ -87,7 +87,8 @@
 			foreach($users as $user){
 				echo "<tr><td>".$user['name']."</td>";
 				echo "<td>".$user['email']."</td>";
-				echo "<td>".$user['job']."</td></tr>";
+				echo "<td>".$user['job']."</td>";
+				echo "<td>".$user['date']."</td></tr>";
 			}
 		}
 	}catch(Exception $e){
