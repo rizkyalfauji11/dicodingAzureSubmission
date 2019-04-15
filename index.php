@@ -69,10 +69,7 @@
 				echo "<tr><td>".$user['name']."</td>";
 				echo "<td>".$user['email']."</td>";
 				echo "<td>".$user['job']."</td></tr>";
-			}else{
-
-			echo "<h3>There is no one data</h3>";
-		}
+			}
 		}
 	}catch(Exception $e){
 		echo "Failed: ".$e;
