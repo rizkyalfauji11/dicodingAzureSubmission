@@ -46,18 +46,18 @@
 	}
 
 
-	/*if(isset(&_POST['submit'])){
+	if(isset(&_POST['submit'])){
 		try{
 			$name = $_POST['name'];
 			$email  = $_POST['email'];
 			$job = $_POST['job'];
 
-			$connect->exec("INSERT INTO [dbo].[tb_user] values('$name', '$email','$job')");
-			
+			$connect->exec("INSERT INTO [dbo].[tb_user](name, email, job) values('$name', '$email','$job')");
+
 		}catch(Exception $e){
 			echo "Failed: ".$e;
 		}
-	}	*/
+	}	
 	
 ?>
 </form>
