@@ -7,7 +7,7 @@
 	<h1>Register Here</h1>
 	<label>Fill in your name and email address, then click Submit to register.</label>
 	<form method="post" action="index.php" enctype="multipart/form-data">
-	<table >
+	<table>
 		<tr>
 			<td>Nama</td>
 			<td><input type="text" name="name" id="name"></td>
@@ -62,7 +62,7 @@
 		$users = $statement->fetchAll();
 
 		if(count($users > 0)){
-			echo "<table border='1'>>";
+			echo "<table border='1'>";
 			echo "<tr><th>Name</th><th>Email</th><th>Job</th></tr>";
 
 			foreach($users as $user){
