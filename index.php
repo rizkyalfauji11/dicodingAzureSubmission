@@ -6,8 +6,8 @@
 <body>
 	<h1>Register Here</h1>
 	<label>Fill in your name and email address, then click Submit to register.</label>
-	<form>
-	<table method="post" action="index.php" enctype="multipart/form-data">
+	<form method="post" action="index.php" enctype="multipart/form-data">
+	<table >
 		<tr>
 			<td>Nama</td>
 			<td><input type="text" name="name" id="name"></td>
@@ -25,6 +25,7 @@
 			<td><button name="load">Load Data</button></td>
 		</tr>
 	</table>
+	</form>
 	
 <?php  
 
@@ -60,6 +61,5 @@
 	}	
 	
 ?>
-</form>
 </body>
 </html>
