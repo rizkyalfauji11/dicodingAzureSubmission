@@ -46,7 +46,7 @@
 	}
 
 
-	if(isset(&_POST['submit'])){
+	/*if(isset(&_POST['submit'])){
 		try{
 			$name = $_POST['name'];
 			$email  = $_POST['email'];
@@ -57,7 +57,7 @@
 		}catch(Exception $e){
 			echo "Failed: ".$e;
 		}
-	}	
+	}	*/
 	
 ?>
 </form>
