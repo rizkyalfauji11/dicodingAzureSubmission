@@ -42,10 +42,10 @@
 	);
 
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
-	$sql  = "select * from dicoding";
+	$sql  = "create table dadangkonelo (id int(25))";
 
 	$getResult = sqlsrv_query($conn, $sql);
-	echo ("Reading data from table".PHP_EOL);
+	/*echo ("Reading data from table".PHP_EOL);*/
 
 	if($getResult == FALSE){
 		echo (sqlrv_errors());
