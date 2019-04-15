@@ -49,6 +49,25 @@
 
 			$connect->exec("INSERT INTO [dbo].[tb_user](name, email, job) values('$name', '$email','$job')");
 
+			try{
+		$sql = "select * from [dbo].[tb_user]";
+		$statement = $connect->query($sql);
+		$users = $statement->fetchAll();
+
+		if(count($users > 0)){
+			echo "<table border='1'>";
+			echo "<tr><th>Name</th><th>Email</th><th>Job</th></tr>";
+
+			foreach($users as $user){
+				echo "<tr><td>".$user['name']."</td>";
+				echo "<td>".$user['email']."</td>";
+				echo "<td>".$user['job']."</td></tr>";
+			}
+		}
+	}catch(Exception $e){
+		echo "Failed: ".$e;
+	}
+
 		}catch(Exception $e){
 			echo "Failed: ".$e;
 		}
