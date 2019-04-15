@@ -26,7 +26,6 @@
 		</tr>
 	</table>
 	</form>
-	
 <?php  
 
 	$host = "dicodingwebapps.database.windows.net";
@@ -36,12 +35,7 @@
 
 	try{
 		$connect = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-		$connect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		if ($connect) {
-			echo "Sukses";
-		}else{
-			echo "Gagal";
-		}
+		$connect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
 	}catch(Exception $e){
 		echo "Failed: ".$e;
 	}
@@ -60,6 +54,29 @@
 		}
 	}	
 	
+
+	if(isset($_POST['load'])){
+		try{
+		$sql = "select * from [dbo].[tb_user]";
+		$statement = $connect->query($sql);
+		$users = $statement->fetchAll();
+
+		if(count($users > 0)){
+			echo "<table>";
+			echo "<tr><th>Name<th><th>Email</th><th>Job</th></tr>";
+
+			foreach($users as $user){
+				echo "<tr><td>".$user['name']."</td>";
+				echo "<td>".$user['email']."</td>";
+				echo "<td>".$user['job']."</td></tr>";
+			}
+
+			echo "<h3>There is no one data</h3>";
+		}
+	}catch(Exception $e){
+		echo "Failed: ".$e;
+	}
+	}
 ?>
 </body>
 </html>
