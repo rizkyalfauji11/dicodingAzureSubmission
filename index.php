@@ -42,6 +42,11 @@
 	);
 
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
+	if($conn){
+		echo "Sukses";
+	}else{
+		echo "Gagal";
+	}
 	$sql  = "create table dadangkonelo (id int(25))";
 
 	$getResult = sqlsrv_query($conn, $sql);
